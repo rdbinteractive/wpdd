@@ -2,7 +2,7 @@
 
 namespace WPDD\ThemeSetup;
 
-class ImageSizes
+class RegisterImageSizes
 {
 
     public $sizes_to_add;

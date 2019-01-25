@@ -65,7 +65,7 @@ class DryDock
             // ),
         );
 
-        (new ThemeSetup\ImageSizes($custom_image_sizes))->addImageSizes();
+        (new ThemeSetup\RegisterImageSizes($custom_image_sizes))->addImageSizes();
 
         /**
          *  Add additional Site Identity information to the customizer.
