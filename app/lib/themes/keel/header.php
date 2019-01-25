@@ -5,7 +5,6 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <?= (new WPDD\Favicon\Display())->favicons('WP DryDock', '#fff'); ?>
     <?php wp_head(); ?>
 </head>
 

@@ -6,7 +6,7 @@ class ACFInit
 {
     public function init()
     {
-        if ('true' === INIT_ACF) :
+        if ('true' === ENABLE_ACF) :
             require_once('acf/acf.php');
 
             if (REMOVE_ACF_MENU === 'true') :

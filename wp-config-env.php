@@ -52,7 +52,7 @@ define('SW_DEVELOPER_EMAIL', getenv('SW_DEVELOPER_EMAIL' ?: ''));
 define('SW_DEVELOPER_PHONE', getenv('SW_DEVELOPER_PHONE' ?: ''));
 
 // ACF.
-define('INIT_ACF', getenv('INIT_ACF') ?: 'false');
+define('ENABLE_ACF', getenv('ENABLE_ACF') ?: 'false');
 define('REMOVE_ACF_MENU', getenv('REMOVE_ACF_MENU') ?: 'false');
 
 // Admin Bar.
