@@ -28,7 +28,7 @@
   - From your project root, run `docker exec -ti wpdd-php bash` to log in to the PHP container.
   - From `/var/www/html`, run `npm run watch` to watch & compile scripts & styles.
   - To log out of the PHP container type `exit`
-  - To shut down Docker services, from `PROJECT_ROOT` run `docker-compose down`   
+  - To shut down Docker services, from your project root, run `docker-compose down`   
  
 ## <a name="codingStandards">Coding Standards</a>
 [PSR-2](https://www.php-fig.org/psr/psr-2/)  
