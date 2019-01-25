@@ -17,10 +17,10 @@ if (!defined('ABSPATH')) {
 /**
  * Initialize Site Functionality and Theme Setup.
  */
-$init = new DryDockBootstrap();
+$init = new DryDock();
 $init->bootstrap();
 
-class DryDockBootstrap
+class DryDock
 {
     public function bootstrap()
     {
