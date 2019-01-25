@@ -23,6 +23,7 @@ class RegisterNavigation
             'menu_class'     => '',
             'theme_location' => 'primary-nav',
             'depth'          => 0,
+            'fallback_cb'    => '__return_false',
         ));
     }
 
