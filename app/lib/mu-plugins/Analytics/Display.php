@@ -21,7 +21,7 @@ class Display
     public function googleAnalyticsScript($id)
     {
         if (ENABLE_CUSTOMIZER_ANALYTICS === 'true' &&
-            $id !== '' &&
+            $id &&
             ENVIRONMENT === 'development'
         ) :
             $trackingScript = '<script>';
@@ -37,13 +37,8 @@ class Display
             a.src = g;
             m.parentNode.insertBefore(a, m)
             })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-            ga('create', '
-            ";
-            $trackingScript .= $id;
-            $trackingScript .= "
-            ', 'auto');
-            ga('send', 'pageview');
-            ";
+            ga('create', '".$id."', 'auto');
+            ga('send', 'pageview');";
             $trackingScript .= '</script>';
             return $trackingScript;
         else :
