@@ -7,6 +7,11 @@ get_header();
     <p>Local WordPress Development with Docker</p>
     <p>
         <?php (new WPDD\ThemeSetup\RegisterNavigation())->wpddPrimaryNav(); ?>
+        <?php
+        $identity = new WPDD\SiteIdentity\Display();
+        echo $identity->company_name;
+        echo $identity->addressBlock();
+        ?>
     </p>
 <?php
 // End DryDock Landing.

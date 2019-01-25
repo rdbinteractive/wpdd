@@ -9,7 +9,7 @@ class Display
     public function googleAnalyticsTracking()
     {
         $gaTrackingID = get_theme_mod('wpddGATrackingID');
-        return $this->googleAnalyticsOutput($gaTrackingID);
+        return $this->googleAnalyticsScript($gaTrackingID);
     }
 
     /**
@@ -18,11 +18,11 @@ class Display
      * @param $id
      * @return string
      */
-    public function googleAnalyticsOutput($id)
+    public function googleAnalyticsScript($id)
     {
         if (ENABLE_CUSTOMIZER_ANALYTICS === 'true' &&
             $id !== '' &&
-            ENVIRONMENT === 'production'
+            ENVIRONMENT === 'development'
         ) :
             $trackingScript = '<script>';
             $trackingScript .= "
@@ -37,7 +37,8 @@ class Display
             a.src = g;
             m.parentNode.insertBefore(a, m)
             })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-            ga('create', '";
+            ga('create', '
+            ";
             $trackingScript .= $id;
             $trackingScript .= "
             ', 'auto');
