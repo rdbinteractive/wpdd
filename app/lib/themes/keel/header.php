@@ -10,6 +10,5 @@
 </head>
 
 <body <?php body_class(); ?> >
-<div class="t_wrap">
-    <a class="u_screen-reader-text" href="#content">Skip To Content</a>
-    <div id="content">
+<a class="u_screen-reader-text" href="#content">Skip To Content</a>
+<div id="content">
