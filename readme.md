@@ -3,7 +3,7 @@
 ### Documentation: [https://docs.wpdrydock.com/](https://docs.wpdrydock.com/)
 
 ## Why?
-  - ~5 Minute Setup (Depending on download speed).
+  - ~5 Minute Setup.
   - Uses [Dotenv](https://github.com/vlucas/phpdotenv) for [environment variable](#environmentVars) management.
   - Uses [PSR-4 Autoloader](https://www.php-fig.org/psr/psr-4/) to encapsulate functionality.
   - Keeps content separate from core
@@ -14,10 +14,9 @@
 ### Setup
   - Download and install [Docker](https://www.docker.com/get-docker)
   - Clone this repository to your working directory, this will be referred to as `PROJECT_ROOT`
-  - Copy `PROJECT_ROOT/.env.dev` to `PROJECT_ROOT/.env`
-  - Open `.env` and set the `PROJECT_ROOT` environment variable
-  - From `PROJECT_ROOT` run `docker compose up -d`
-  - From `PROJECT_ROOT` run `docker exec -ti wpdd-php bash`
+  - Copy `./.env.dev` to `./.env`  
+  - From your project root run `docker compose up -d`
+  - From your project root run `docker exec -ti wpdd-php bash`
   - This logs you in to the php container at: `/var/www/html` 
   - From `/var/www/html` run `./buildfresh.sh` [Windows Note](#windowsBuildfresh)    
   - In a browser, visit `http://localhost` 
