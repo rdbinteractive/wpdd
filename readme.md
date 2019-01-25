@@ -15,8 +15,8 @@
   - Download and install [Docker](https://www.docker.com/get-docker)
   - Clone this repository to your working directory, this will be referred to as `PROJECT_ROOT`
   - Copy `./.env.dev` to `./.env`  
-  - From your project root run `docker compose up -d`
-  - From your project root run `docker exec -ti wpdd-php bash`
+  - From your project root, run `docker compose up -d`
+  - From your project root, run `docker exec -ti wpdd-php bash`
   - This logs you in to the php container at: `/var/www/html` 
   - From `/var/www/html` run `./buildfresh.sh` [Windows Note](#windowsBuildfresh)    
   - In a browser, visit `http://localhost` 
@@ -25,8 +25,8 @@
   - Develop.
     
 ### <a name="developmentWorkflow">Development Workflow</a>
-  - From `PROJECT_ROOT` run `docker exec -ti wpdd-php bash` to log in to the PHP container.
-  - From `/var/www/html` run `npm run watch` to watch & compile scripts & styles.
+  - From your project root, run `docker exec -ti wpdd-php bash` to log in to the PHP container.
+  - From `/var/www/html`, run `npm run watch` to watch & compile scripts & styles.
   - To log out of the PHP container type `exit`
   - To shut down Docker services, from `PROJECT_ROOT` run `docker-compose down`   
  
