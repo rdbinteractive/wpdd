@@ -32,9 +32,6 @@
  
 ## <a name="codingStandards">Coding Standards</a>
 [PSR-2](https://www.php-fig.org/psr/psr-2/)  
-Why not WP Coding Standards? 2 reasons.
-  1. It's applicable to a broader range of projects.
-  2. I find that it sets _my_ code apart quite nicely from the WP code. It's easy to spot the native WP code that's sprinkled in.
 
 ## <a name="gitflow">Gitflow Workflow</a>
   - This project uses the [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
