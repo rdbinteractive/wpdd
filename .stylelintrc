@@ -1,0 +1,105 @@
+{
+  "plugins": [
+    "stylelint-order"
+  ],
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": "resources/js",
+  "rules": {
+    "indentation": 4,
+    "unit-whitelist": [
+      "em",
+      "rem",
+      "s",
+      "ms",
+      "px",
+      "%",
+      "vh",
+      "vw",
+      "fr",
+      "ch"
+    ],
+    "selector-pseudo-element-colon-notation": "single",
+    "declaration-empty-line-before": "never",
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "severity": "error"
+      }
+    ],
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-order": [
+      "content",
+      /**Positioning**/
+      "position",
+      "top",
+      "right",
+      "bottom",
+      "left",
+      "z-index",
+      /**Display & Box Model**/
+      "display",
+      "float",
+      "clear",
+      "box-sizing",
+      "flex-direction",
+      "flex-wrap",
+      "flex-flow",
+      "justify-content",
+      "align-content",
+      "align-items",
+      "flex",
+      "width",
+      "height",
+      "overflow",
+      "margin",
+      "margin-top",
+      "margin-right",
+      "margin-bottom",
+      "margin-left",
+      "padding",
+      "padding-top",
+      "padding-right",
+      "padding-bottom",
+      "padding-left",
+      /**Borders**/
+      "border",
+      "border-top",
+      "border-right",
+      "border-bottom",
+      "border-left",
+      "border-radius",
+      "box-shadow",
+      /**Background**/
+      "background-color",
+      "background-image",
+      "background",
+      "background-size",
+      "background-attachment",
+      "background-position",
+      /**Color**/
+      "opacity",
+      "color",
+      /**Text**/
+      "font-size",
+      "font-family",
+      "line-height",
+      "text-align",
+      "text-transform",
+      "white-space",
+      /**Pointer**/
+      "cursor",
+      "pointer-events",
+      /**Other**/
+
+      /**Transform/Translate**/
+      "transform",
+      "clip",
+      "translate",
+      "transition"
+    ],
+    "order/properties-alphabetical-order": false
+  }
+}

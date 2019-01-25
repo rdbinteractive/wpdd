@@ -1,0 +1,74 @@
+@-webkit-viewport { width: device-width; }
+
+@-moz-viewport { width: device-width; }
+
+@-ms-viewport { width: device-width; }
+
+@-o-viewport { width: device-width; }
+
+@viewport { width: device-width; }
+
+@import "vendor/sanitize";
+@import "base/base";
+@import "template/template";
+
+/**
+ * DryDock Splash Screen
+ * Everything from here down can be scrapped safely.
+ * Markup is in the Minimus theme's index.php.
+ */
+
+body {
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+.drydock-landing {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex: 0 0 100%;
+    width: 100%;
+    min-height: 100vh;
+
+    p {
+        margin: 0;
+        color: #f2f2f2;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    svg {
+        width: 200px;
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 18px;
+    }
+}
+
+#content {
+    flex: 0 0 100%;
+    width: 100%;
+}
+
+#menu-primary-menu {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    list-style: none;
+    width: 100%;
+    padding-right: 48px;
+
+    li {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-bottom: 8px;
+        text-align: center;
+
+        a {
+            color: #f2f2f2;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+/**
+ * Screen Reader Text
+ * @see: https://make.wordpress.org/accessibility/handbook/markup/the-css-class-screen-reader-text/
+ */
+.u_screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    word-wrap: normal !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+
+    &:focus {
+        display: block;
+        top: 5px;
+        left: 5px;
+        z-index: 100000;
+        width: auto;
+        height: auto;
+        padding: 15px 23px 14px;
+        background-color: #eee;
+        color: #444;
+        font-size: 1em;
+        line-height: normal;
+        clip: auto !important;
+        clip-path: none;
+        text-decoration: none;
+    }
+}

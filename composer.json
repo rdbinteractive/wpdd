@@ -1,0 +1,20 @@
+{
+  "name": "wpdd/wpdd",
+  "description": "WP DryDock",
+  "license": "gpl",
+  "type": "wordpress-core",
+  "require": {
+    "phpunit/phpunit": "^6.5",
+    "vlucas/phpdotenv": "^2.5",
+    "johnpbloch/wordpress": "^4.9",
+    "jjgrainger/posttypes": "^2.0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "WPDD\\": "app/lib/mu-plugins/"
+    }
+  },
+  "extra": {
+    "wordpress-install-dir": "app/core"
+  }
+}

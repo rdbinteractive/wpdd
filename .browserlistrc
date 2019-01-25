@@ -1,0 +1,11 @@
+ie >= 8,
+ie_mob >= 8,
+ff >= 30,
+chrome >= 34,
+safari >= 7,
+opera >= 23,
+ios >= 7,
+android >= 2.1,
+bb >= 10
+Firefox ESR
+not dead

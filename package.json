@@ -1,0 +1,37 @@
+{
+  "name": "DryDock",
+  "version": "1.0.0",
+  "description": "WP DryDock - Local WordPress development with Docker",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:rdbinteractive/wpdd.git"
+  },
+  "keywords": [],
+  "author": "Robert Bardall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rdbinteractive/wpdd/issues"
+  },
+  "homepage": "https://wpdrydock.com",
+  "devDependencies": {
+    "css-mqpacker": "^7.0.0",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "imagemin": "^6.0.0",
+    "laravel-mix": "^3.0.0",
+    "stylelint": "^9.4.0",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-order": "^0.4.1"
+  }
+}

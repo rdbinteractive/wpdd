@@ -1,0 +1,45 @@
+version: "3.1"
+
+services:
+    nginx:
+        build: ./develop/nginx/
+        hostname: "${COMPOSE_PROJECT_NAME}-nginx"
+        container_name: "${COMPOSE_PROJECT_NAME}-nginx"
+        ports:
+            - 80:80
+        volumes:
+            - "./:/var/www/html:ro"
+        depends_on:
+            - php
+
+    php:
+        image: rdbinteractive/rdbiwp-php
+        hostname: "${COMPOSE_PROJECT_NAME}-php"
+        container_name: "${COMPOSE_PROJECT_NAME}-php"
+        expose:
+            - 9000
+        volumes:
+            - "./:/var/www/html"
+            - ./develop/php/php.ini:/usr/local/etc/php/conf.d/php.ini:ro
+        depends_on:
+            - mysql
+        environment:
+          PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/www/html/vendor/bin
+          PHP_IDE_CONFIG: "serverName=localhost"
+
+    mysql:
+        image: mysql:5.7
+        hostname: "${COMPOSE_PROJECT_NAME}-mysql"
+        container_name: "${COMPOSE_PROJECT_NAME}-mysql"
+        volumes:
+            - ./develop/mysql/mysql_data:/var/lib/mysql
+        ports:
+            - 3336:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+            MYSQL_DATABASE: "${DB_NAME}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+
+volumes:
+    mysql_data:

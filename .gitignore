@@ -1,0 +1,47 @@
+# OS Files
+.DS_Store
+.DS_Store?
+.Trashes
+.Spotlight-V100
+._*
+Thumbs.db
+
+# IDE Files
+/.idea
+/.vscode
+
+# Data Directory
+/develop/mysql/mysql_data
+
+# Common project files
+/node_modules
+/vendor
+.sass-cache
+npm-debug.log
+yarn-error.log
+*.old
+
+# Dotenv
+.env
+.env.*
+!.env.dev
+!.env.prod
+
+# Project Specific
+/app/core
+/app/lib/plugins
+/app/lib/upgrade
+/app/lib/uploads
+/app/lib/themes/twentyninteen
+/app/lib/themes/twentyseventeen
+/app/lib/themes/twentysixteen
+/app/lib/themes/twentyfifteen
+/app/lib/themes/twentyfourteen
+/app/lib/themes/twentythirteen
+/app/lib/themes/twentytwelve
+/app/lib/index.php
+*.min.css
+*.min.js
+!app/lib/mu-plugins/Lib/acf/**/*.min.css
+!app/lib/mu-plugins/Lib/acf/**/*.min.js
+mix-manifest.json
