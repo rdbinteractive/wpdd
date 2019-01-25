@@ -17,7 +17,7 @@ $dotenv->load();
 /**
  * The wp-config file.
  */
-require_once dirname(__DIR__) . '/config/wp-config-env.php';
+require_once dirname(__DIR__) . '/wp-config-env.php';
 
 /**
  * Absolute path to the WordPress directory.

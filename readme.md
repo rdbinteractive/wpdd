@@ -22,7 +22,7 @@
   - From `/var/www/html` run `./buildfresh.sh` [Windows Note](#windowsBuildfresh)    
   - In a browser, visit `http://localhost` 
   - Configure WordPress
-  - Activate the "Minimus" theme.
+  - Activate the Keel theme.
   - Develop.
     
 ### <a name="developmentWorkflow">Development Workflow</a>

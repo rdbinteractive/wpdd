@@ -1,7 +1,7 @@
 let mix = require('laravel-mix');
 
-mix.js('develop/resources/js/app.js', 'app/lib/themes/minimus/lib/js/app.min.js')
-    .sass('develop/resources/scss/style.scss', 'app/lib/themes/minimus/lib/style/style.min.css');
+mix.js('develop/resources/js/app.js', 'app/lib/themes/keel/lib/js/app.min.js')
+    .sass('develop/resources/scss/style.scss', 'app/lib/themes/keel/lib/style/style.min.css');
 
 mix.autoload({
     'jquery': ['jQuery', '$']
