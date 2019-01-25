@@ -13,7 +13,7 @@
 ## <a name="quickStart">Quick Start</a>
 ### Setup
   - Download and install [Docker](https://www.docker.com/get-docker)
-  - Clone this repository to your working directory, this will be referred to as `PROJECT_ROOT`
+  - Clone this repository to your working directory.
   - Copy `./.env.dev` to `./.env`  
   - From your project root, run `docker compose up -d`
   - From your project root, run `docker exec -ti wpdd-php bash`
