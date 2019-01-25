@@ -14,25 +14,15 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Let's grow something.
-$init = new DrStein();
-$init->growFunnyCreatures();
-
 /**
- * Class DrStein.
- *
- * Initialize Site and Theme Functionality.
- *
- * "Dr. Stein grows funny creatures
- * Lets them run into the night
- * They become a great possession
- * And their time is right"
- *
- * @see https://www.youtube.com/watch?v=3FFTQRmsK0k
+ * Initialize Site Functionality and Theme Setup.
  */
-class DrStein
+$init = new DryDockBootstrap();
+$init->bootstrap();
+
+class DryDockBootstrap
 {
-    public function growFunnyCreatures()
+    public function bootstrap()
     {
         /**
          * Theme Setup.
