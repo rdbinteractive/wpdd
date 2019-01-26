@@ -78,6 +78,11 @@ class DryDock
         (new Analytics\Init())->init();
 
         /**
+         *  Add Open Graph Section to the customizer.
+         */
+        (new OpenGraph\Init())->init();
+
+        /**
          * Initialize ACF.
          */
         (new Lib\ACFInit())->init();
