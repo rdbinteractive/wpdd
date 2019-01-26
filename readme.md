@@ -55,4 +55,8 @@ If you encounter an error while running `./buildfresh.sh`:
 [GNU GPL v3.0 or Later](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## <a name="changelog">Changelog</a>
-### Version 1.0.0 &mdash; Falling Into Infinity.
+### Version 1.1.0
+- Add Open Graph Support
+
+### Version 1.0.0 &mdash; 
+- Falling Into Infinity.
