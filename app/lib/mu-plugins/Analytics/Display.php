@@ -22,7 +22,7 @@ class Display
     {
         if (ENABLE_CUSTOMIZER_ANALYTICS === 'true' &&
             $id &&
-            ENVIRONMENT === 'development'
+            ENVIRONMENT === 'production'
         ) :
             $trackingScript = '<script>';
             $trackingScript .= "
