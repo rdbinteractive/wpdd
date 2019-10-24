@@ -68,6 +68,11 @@ class DryDock
         (new ThemeSetup\RegisterImageSizes($custom_image_sizes))->addImageSizes();
 
         /**
+         * Add color settings.
+         */
+        (new Color\Init())->init();
+
+        /**
          *  Add additional Site Identity information to the customizer.
          */
         (new SiteIdentity\Init())->init();

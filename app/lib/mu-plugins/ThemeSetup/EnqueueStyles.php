@@ -34,7 +34,7 @@ class EnqueueStyles
             /**
              * Enqueue Styles.
              */
-            add_action('wp_enqueue_scripts', array( $this, 'enqueueThemeStyles'));
+            //add_action('wp_enqueue_scripts', array( $this, 'enqueueThemeStyles'));
         }
     }
 
