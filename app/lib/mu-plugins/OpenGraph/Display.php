@@ -4,8 +4,6 @@ namespace WPDD\OpenGraph;
 
 class Display
 {
-    public $gaTrackingID;
-
     public function meta()
     {
         $title = get_theme_mod('wpddOGTitle');
@@ -27,7 +25,8 @@ class Display
      */
     public function assembleOGMeta($title, $type, $url, $image, $description)
     {
-        if (ENABLE_CUSTOMIZER_OPEN_GRAPH === 'true' &&
+        if (
+            ENABLE_CUSTOMIZER_OPEN_GRAPH === 'true' &&
             $title &&
             $type &&
             $url &&

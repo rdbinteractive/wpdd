@@ -2,6 +2,8 @@
 
 namespace WPDD\SiteIdentity;
 
+use WP_Customize_Control;
+
 class Customizer
 {
     public function addOptions()
@@ -9,22 +11,28 @@ class Customizer
         add_action('customize_register', array($this, 'siteIdentityCustomizerSettings'));
     }
 
-    public function siteIdentityCustomizerSettings($wp_customize)
+    /**
+     * @noinspection PhpUndefinedMethodInspection
+     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     *
+     * @param $wpCustomize
+     */
+    public function siteIdentityCustomizerSettings($wpCustomize)
     {
         // add a setting for the site logo
-        $wp_customize->add_setting('wpdd_company_name');
-        $wp_customize->add_setting('wpdd_street_address_1');
-        $wp_customize->add_setting('wpdd_street_address_2');
-        $wp_customize->add_setting('wpdd_city');
-        $wp_customize->add_setting('wpdd_state');
-        $wp_customize->add_setting('wpdd_zip');
-        $wp_customize->add_setting('wpdd_country');
-        $wp_customize->add_setting('wpdd_phone');
-        $wp_customize->add_setting('wpdd_fax');
+        $wpCustomize->add_setting('wpdd_company_name');
+        $wpCustomize->add_setting('wpdd_street_address_1');
+        $wpCustomize->add_setting('wpdd_street_address_2');
+        $wpCustomize->add_setting('wpdd_city');
+        $wpCustomize->add_setting('wpdd_state');
+        $wpCustomize->add_setting('wpdd_zip');
+        $wpCustomize->add_setting('wpdd_country');
+        $wpCustomize->add_setting('wpdd_phone');
+        $wpCustomize->add_setting('wpdd_fax');
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpdd_company_name',
                 array(
                     'label' => 'Company Name',
@@ -35,9 +43,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpdd_street_address_1',
                 array(
                     'label' => 'Street Address',
@@ -48,9 +56,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpdd_street_address_2',
                 array(
                     'label' => 'Address 2',
@@ -61,9 +69,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpdd_city',
                 array(
                     'label' => 'City',
@@ -74,9 +82,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpdd_state',
                 array(
                     'label' => 'State',
@@ -87,9 +95,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpdd_zip',
                 array(
                     'label' => 'Zip Code',
@@ -100,9 +108,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpdd_country',
                 array(
                     'label' => 'Country',
@@ -113,9 +121,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpdd_phone',
                 array(
                     'label' => 'Phone',
@@ -126,9 +134,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpdd_fax',
                 array(
                     'label' => 'Fax',

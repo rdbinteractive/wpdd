@@ -2,6 +2,8 @@
 
 namespace WPDD\Analytics;
 
+use WP_Customize_Control;
+
 class Customizer
 {
     public function addOptions()
@@ -9,18 +11,21 @@ class Customizer
         add_action('customize_register', array($this, 'analyticsCustomizerSettings'));
     }
 
-    public function analyticsCustomizerSettings($wp_customize)
+    public function analyticsCustomizerSettings($wpCustomize)
     {
-        $wp_customize->add_section('wpddAnalytics', array(
+        /** @noinspection PhpUndefinedMethodInspection */
+        $wpCustomize->add_section('wpddAnalytics', array(
             'title' => __('Analytics', 'wpdd_theme'),
             'priority' => 30,
         ));
 
-        $wp_customize->add_setting('wpddGATrackingID');
+        /** @noinspection PhpUndefinedMethodInspection */
+        $wpCustomize->add_setting('wpddGATrackingID');
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        /** @noinspection PhpUndefinedMethodInspection */
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpddGATrackingID',
                 array(
                     'label' => 'Google Analytics Tracking ID',

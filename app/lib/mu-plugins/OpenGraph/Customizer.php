@@ -2,6 +2,9 @@
 
 namespace WPDD\OpenGraph;
 
+use WP_Customize_Control;
+use WP_Customize_Image_Control;
+
 class Customizer
 {
     public function addOptions()
@@ -9,22 +12,23 @@ class Customizer
         add_action('customize_register', array($this, 'analyticsCustomizerSettings'));
     }
 
-    public function analyticsCustomizerSettings($wp_customize)
+    /** @noinspection PhpUndefinedMethodInspection */
+    public function analyticsCustomizerSettings($wpCustomize)
     {
-        $wp_customize->add_section('wpddOpenGraph', array(
+        $wpCustomize->add_section('wpddOpenGraph', array(
             'title' => __('Open Graph', 'wpdd_theme'),
             'priority' => 30,
         ));
 
-        $wp_customize->add_setting('wpddOGTitle');
-        $wp_customize->add_setting('wpddOGDescription');
-        $wp_customize->add_setting('wpddOGType');
-        $wp_customize->add_setting('wpddOGURL');
-        $wp_customize->add_setting('wpddOGImage');
+        $wpCustomize->add_setting('wpddOGTitle');
+        $wpCustomize->add_setting('wpddOGDescription');
+        $wpCustomize->add_setting('wpddOGType');
+        $wpCustomize->add_setting('wpddOGURL');
+        $wpCustomize->add_setting('wpddOGImage');
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpddOGTitle',
                 array(
                     'label' => 'Open Graph Title',
@@ -35,9 +39,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpddOGType',
                 array(
                     'label' => 'Open Graph Type',
@@ -48,9 +52,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpddOGURL',
                 array(
                     'label' => 'Open Graph URL',
@@ -61,9 +65,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Control(
+                $wpCustomize,
                 'wpddOGDescription',
                 array(
                     'label' => 'Open Graph Description',
@@ -74,9 +78,9 @@ class Customizer
             )
         );
 
-        $wp_customize->add_control(
-            new \WP_Customize_Image_Control(
-                $wp_customize,
+        $wpCustomize->add_control(
+            new WP_Customize_Image_Control(
+                $wpCustomize,
                 'wpddOGImage',
                 array(
                     'label'      => 'Open Graph Image',
@@ -87,5 +91,3 @@ class Customizer
         );
     }
 }
-
-

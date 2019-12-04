@@ -37,7 +37,6 @@ class EnqueueScripts
              * Enqueue Scripts.
              */
             add_action('wp_enqueue_scripts', array($this, 'enqueueThemeScripts'));
-
         }
     }
 

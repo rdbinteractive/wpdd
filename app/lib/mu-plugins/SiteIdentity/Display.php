@@ -5,112 +5,170 @@ namespace WPDD\SiteIdentity;
 class Display
 {
     /**
-     * @var string
-     */
-    public $company_name;
-
-    /**
-     * @var string
-     */
-    public $address_1;
-
-    /**
-     * @var string
-     */
-    public $address_2;
-
-    /**
-     * @var string
-     */
-    public $city;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $zip;
-
-    /**
-     * @var string
-     */
-    public $country;
-
-    /**
-     * @var string
-     */
-    public $phone;
-
-    /**
-     * @var string
-     */
-    public $fax;
-
-    public function __construct()
-    {
-        $this->company_name      = esc_html(get_theme_mod('wpdd_company_name'));
-        $this->address_1         = esc_html(get_theme_mod('wpdd_street_address_1'));
-        $this->address_2         = esc_html(get_theme_mod('wpdd_street_address_2'));
-        $this->city              = esc_html(get_theme_mod('wpdd_city'));
-        $this->state             = esc_html(get_theme_mod('wpdd_state'));
-        $this->zip               = esc_html(get_theme_mod('wpdd_zip'));
-        $this->country           = esc_html(get_theme_mod('wpdd_country'));
-        $this->phone             = esc_html(get_theme_mod('wpdd_phone'));
-        $this->fax               = esc_html(get_theme_mod('wpdd_fax'));
-    }
-
-    /**
      * Returns formatted address block.
      *
      * @return string
      */
     public function addressBlock()
     {
-        $string = '';
-
-        if ($this->company_name) :
-            $string .= '<span itemprop="name" class="c_site-identity__name">' . $this->company_name . '</span>';
-        endif;
-
-        $string .= '<address class="c_site-identity__address" itemscope itemtype="//schema.org/PostalAddress" itemprop="address">'; // @codingStandardsIgnoreLine.
-
-        if ($this->address_1) :
-            $string .= '<span itemprop="streetAddress" class="c_site-identity__address-1">' . $this->address_1 . '</span>'; // @codingStandardsIgnoreLine.
-        endif;
-
-        if ($this->address_2) :
-            $string .= '<span class="c_site-identity__address-2">' . $this->address_2 . '</span>';
-        endif;
-
-        if ($this->city) :
-            $string .= '<span itemprop="addressLocality" class="c_site-identity__city">' . $this->city . ', </span>';
-        endif;
-
-        if ($this->state) :
-            $string .= '<span itemprop="addressRegion" class="c_site-identity__state">' . $this->state . ' </span>';
-        endif;
-
-        if ($this->zip) :
-            $string .= '<span class="c_site-identity__zip">' . $this->zip . '</span>';
-        endif;
-
-        if ($this->country) :
-            $string .= '<span itemprop="addressCountry" class="c_site-identity__country">' . $this->country . '</span>';
-        endif;
-
+        $string = $this->companyName();
+        $string .= '<address class="c_site-identity__address" 
+                             itemscope itemtype="//schema.org/PostalAddress" 
+                             itemprop="address"
+                   >';
+        $string .= $this->address1();
+        $string .= $this->address2();
+        $string .= $this->city();
+        $string .= $this->state();
+        $string .= $this->zip();
+        $string .= $this->country();
+        $string .= $this->phone();
+        $string .= $this->fax();
         $string .= '</address>';
-
-        if ($this->phone) :
-            $string .= '<span itemprop="telephone" class="c_site-identity__phone">' . $this->phone . '</span>';
-        endif;
-
-        if ($this->fax) :
-            $string .= '<span itemprop="description" class="c_site-identity__fax">' . $this->fax . '</span>';
-        endif;
-
         return $string;
+    }
+
+    /**
+     * Get the Company Name theme mod.
+     *
+     * @return string
+     */
+    private function companyName()
+    {
+        $companyName = get_theme_mod('wpdd_company_name', false);
+
+        if (!$companyName) :
+            return '';
+        endif;
+
+        return '<span itemprop="name" class="c_site-identity__name">' . $companyName . '</span>';
+    }
+
+    /**
+     * Get the Address 1 theme mod.
+     *
+     * @return string
+     */
+    private function address1()
+    {
+        $address1 = get_theme_mod('wpdd_street_address_1', false);
+
+        if (!$address1) :
+            return '';
+        endif;
+
+        return '<span itemprop="streetAddress" class="c_site-identity__address-1">' . $address1 . '</span>';
+    }
+
+    /**
+     * Get the Address 2 theme mod.
+     *
+     * @return string
+     */
+    private function address2()
+    {
+        $address2 = get_theme_mod('wpdd_street_address_2', false);
+
+        if (!$address2) :
+            return '';
+        endif;
+
+        return '<span class="c_site-identity__address-2">' . $address2 . '</span>';
+    }
+
+    /**
+     * Get the City theme mod.
+     *
+     * @return string
+     */
+    private function city()
+    {
+        $city = get_theme_mod('wpdd_city', false);
+
+        if (!$city) :
+            return '';
+        endif;
+
+        return '<span itemprop="addressLocality" class="c_site-identity__city">' . $city . ', </span>';
+    }
+
+    /**
+     * Get the State theme mod.
+     *
+     * @return string
+     */
+    private function state()
+    {
+        $state = get_theme_mod('wpdd_state', false);
+
+        if (!$state) :
+            return '';
+        endif;
+
+        return '<span itemprop="addressRegion" class="c_site-identity__state">' . $state . ' </span>';
+    }
+
+    /**
+     * Get the Zip theme mod.
+     *
+     * @return string
+     */
+    private function zip()
+    {
+        $zip = get_theme_mod('wpdd_zip', false);
+
+        if (!$zip) :
+            return '';
+        endif;
+
+        return '<span itemprop="postalCode" class="c_site-identity__zip">' . $zip . '</span>';
+    }
+
+    /**
+     * Get the Country theme mod.
+     *
+     * @return string
+     */
+    private function country()
+    {
+        $country = get_theme_mod('wpdd_country', false);
+
+        if (!$country) :
+            return '';
+        endif;
+
+        return '<span itemprop="addressCountry" class="c_site-identity__country">' . $country . '</span>';
+    }
+
+    /**
+     * Get the Phone theme mod.
+     *
+     * @return string
+     */
+    private function phone()
+    {
+        $phone = get_theme_mod('wpdd_phone', false);
+
+        if (!$phone) :
+            return '';
+        endif;
+
+        return '<span itemprop="telephone" class="c_site-identity__phone">' . $phone . '</span>';
+    }
+
+    /**
+     * Get the Fax theme mod.
+     *
+     * @return string
+     */
+    private function fax()
+    {
+        $fax = get_theme_mod('wpdd_fax', false);
+
+        if (!$fax) :
+            return '';
+        endif;
+
+        return '<span itemprop="fax" class="c_site-identity__fax">' . $fax . '</span>';
     }
 }

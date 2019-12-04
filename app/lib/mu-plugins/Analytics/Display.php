@@ -4,8 +4,6 @@ namespace WPDD\Analytics;
 
 class Display
 {
-    public $gaTrackingID;
-
     public function googleAnalyticsTracking()
     {
         $gaTrackingID = get_theme_mod('wpddGATrackingID');
@@ -15,13 +13,14 @@ class Display
     /**
      * Output the Google Analytics tracking string if the proper conditions are met.
      *
-     * @param $id
+     * @param $analyticsId
      * @return string
      */
-    public function googleAnalyticsScript($id)
+    public function googleAnalyticsScript($analyticsId)
     {
-        if (ENABLE_CUSTOMIZER_ANALYTICS === 'true' &&
-            $id &&
+        if (
+            ENABLE_CUSTOMIZER_ANALYTICS === 'true' &&
+            $analyticsId &&
             ENVIRONMENT === 'production'
         ) :
             $trackingScript = '<script>';
@@ -37,7 +36,7 @@ class Display
             a.src = g;
             m.parentNode.insertBefore(a, m)
             })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-            ga('create', '".$id."', 'auto');
+            ga('create', '" . $analyticsId . "', 'auto');
             ga('send', 'pageview');";
             $trackingScript .= '</script>';
             return $trackingScript;

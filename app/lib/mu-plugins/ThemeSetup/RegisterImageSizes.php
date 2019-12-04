@@ -4,22 +4,21 @@ namespace WPDD\ThemeSetup;
 
 class RegisterImageSizes
 {
+    public array $sizesToAdd;
 
-    public $sizes_to_add;
-
-    public function __construct($image_sizes)
+    public function __construct($imageSizes)
     {
-        if (! count($image_sizes) > 0) :
-            $this->sizes_to_add = false;
+        if (! count($imageSizes) > 0) :
+            $this->sizesToAdd = [];
         else :
-            $this->sizes_to_add = $image_sizes;
+            $this->sizesToAdd = $imageSizes;
         endif;
     }
 
     public function addImageSizes()
     {
-        if ($this->sizes_to_add) :
-            foreach ($this->sizes_to_add as $size) :
+        if ($this->sizesToAdd !== []) :
+            foreach ($this->sizesToAdd as $size) :
                 add_image_size($size['name'], $size['width'], $size['height'], $size['crop']);
             endforeach;
 
@@ -29,14 +28,14 @@ class RegisterImageSizes
 
     public function wpddImageSizeChoices($sizes)
     {
-        $wpdd_sizes = [];
+        $wpddSizes = [];
 
-        foreach ($this->sizes_to_add as $key => $size) :
-            $wpdd_sizes[] = [$size['name'] => __($size['name'])];
+        foreach ($this->sizesToAdd as $key => $size) :
+            $wpddSizes[] = [$size['name'] => __($size['name'])];
         endforeach;
 
         // Thanks Larry :)
-        foreach ($wpdd_sizes as $pair) {
+        foreach ($wpddSizes as $pair) {
             $key = key($pair);
             $sizes[$key] = $pair[$key];
         }
