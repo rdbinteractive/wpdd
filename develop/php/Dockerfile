@@ -1,5 +1,4 @@
-FROM php:7.2-fpm
-
+FROM php:7.4-fpm
 
 # install the PHP extensions we need
 RUN set -ex; \
@@ -15,7 +14,7 @@ RUN set -ex; \
 		git-core \
 		zip \
 		unzip \
-		mysql-client \
+		default-mysql-client \
 	    apt-transport-https \
 	; \
 	\
@@ -31,7 +30,7 @@ RUN apt-get update
 RUN apt-get install nodejs yarn -yq
 
 # Install XDebug
-RUN pecl install xdebug-2.6.0 \
+RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
 # Install PHPCS
@@ -40,6 +39,13 @@ WORKDIR /tmp
 RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && \
     cp /tmp/phpcs.phar /usr/local/bin/phpcs && \
     chmod +x /usr/local/bin/phpcs
+
+# Install PHPMD
+WORKDIR /tmp
+
+RUN curl -OL https://github.com/phpmd/phpmd/releases/download/2.7.0/phpmd.phar && \
+    cp /tmp/phpmd.phar /usr/local/bin/phpmd && \
+    chmod +x /usr/local/bin/phpmd
 
 # Install Composer
 WORKDIR /tmp

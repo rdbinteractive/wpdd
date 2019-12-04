@@ -11,9 +11,8 @@ services:
             - "./:/var/www/html:ro"
         depends_on:
             - php
-
     php:
-        image: rdbinteractive/rdbiwp-php
+        build: ./develop/php/
         hostname: "${COMPOSE_PROJECT_NAME}-php"
         container_name: "${COMPOSE_PROJECT_NAME}-php"
         expose:
@@ -25,8 +24,9 @@ services:
             - mysql
         environment:
           PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/www/html/vendor/bin
-          PHP_IDE_CONFIG: "serverName=localhost"
-
+          PHP_IDE_CONFIG: "serverName=${LOCAL_HOST_NAME}"
+        extra_hosts:
+          - "${LOCAL_HOST_NAME}:172.18.0.1"
     mysql:
         image: mysql:5.7
         hostname: "${COMPOSE_PROJECT_NAME}-mysql"
